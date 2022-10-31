@@ -1,0 +1,25 @@
+{%  extends 'base.html' %}
+{% block title %}
+Forms
+{% endblock %}
+{% block content %}
+</head>
+<body>
+<h1>
+    {% if name %}
+        Hello, {{ name }} ! Welcome !
+    {% else %}
+        Please enter your name.
+    {% endif %}
+</h1>
+<form method="post" action="{% url 'index' %}">
+{#    as_p --> формата пада на 2 реда#}
+{#    as_table --> прави ги на таблица, но трябда да го заобиколим с <table>#}
+    {{ form.as_p }}
+
+{% csrf_token %}
+    <button>Submit</button>
+</form>
+</body>
+</html>
+{%  endblock %}
